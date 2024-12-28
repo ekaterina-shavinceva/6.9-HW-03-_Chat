@@ -38,8 +38,8 @@ async def receive(self, text_data):
  # Create a new message object and save it to the database
     message_obj = await self.create_message(message, username)
 
- # Send the message to the grou
-    pawait self.channel_layer.group_send(
+ # Send the message to the group
+    await self.channel_layer.group_send(
         self.room_group_name,
     {
 'type': 'chat_message',
@@ -56,7 +56,7 @@ async def chat_message(self, event):
 
  # Send the message to the websocket
     await self.send(text_data=json.dumps({
-'message': message,
-'username': username,
-'timestamp': timestamp
-}))
+        'message': message,
+        'username': username,
+        'timestamp': timestamp
+    }))
