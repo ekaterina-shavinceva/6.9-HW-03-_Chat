@@ -1,6 +1,5 @@
 from channels.routing import ProtocolTypeRouter, URLRouter
 from django.urls import re_path
-from chatapp.chat.consumers import ChatConsumer
 from chat.consumers import ChatConsumer
 
 websocket_urlpatterns = [
